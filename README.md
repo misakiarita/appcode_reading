@@ -7,15 +7,14 @@
 ただしUser招待などのロジックテスト（Model Spec）は実装している。
 
 ## バージョン
-* Ruby 2.6.5
-* Ruby on Rails 5.2.5
-* psql (PostgreSQL) 12.3
+* Ruby 3.0.1
+* Ruby on Rails 6.0.3
 
 ## 準備
 
 ```
-$ git clone git@github.com:DiveintoCode-corp/diveintopost.git
-$ cd diveintopost
+$ git clone git@github.com:DiveintoCode-corp/diveintopost-rails6.git
+$ cd diveintopost-rails6
 $ bundle install --path vendor/bundle
 $ yarn install # まだ環境にyarnが入っていなかったら
 $ rails db:create db:migrate
@@ -23,6 +22,8 @@ $ rails db:seed_fu
 ```
 
 ### Windowsユーザ向け
+以下の内容に関してすでに設定済みの場合は読み飛ばしていただいて構いません。
+
 Vagrantを通してUbuntu上にyarnをインストールするときは、事前に次の対応が必要です。
 
 ### 1. Windowsローカルセキュリティポリシーで、シンボリック作成権限を一般ユーザーにも許可する
@@ -101,30 +102,27 @@ git remote addなどで、originという文字列と、URLを紐づける
 
 # README
 
-This theme is an application to improve Slack dependency of document sharing.  
+This theme is an application to improve Slack dependency of document sharing.
 (An in-house tool developed to facilitate internal information sharing)
 　
- 
-This time, the integration test (Feature Spec) is not implemented.  
+
+This time, the integration test (Feature Spec) is not implemented.
 The reason is that because this application is a small and in-house tool, we do not need to take many man-hours to automate behavior confirmation.
 　
- 
+
 However, logic tests (Model Spec) such as user invitation are implemented.
 
 ## Version
-* Ruby 2.6.5
-* Ruby on Rails 5.2.4.3
-* psql (PostgreSQL) 12.3
+* Ruby 3.0.1
+* Ruby on Rails 6.0.3
 
 ## Preparation
 
 ```
-$ git clone git@github.com:DiveintoCode-corp/diveintopost.git
-$ cd diveintopost
+$ git clone git@github.com:DiveintoCode-corp/diveintopost-rails6.git
+$ cd diveintopost-rails6
 $ bundle install --path vendor/bundle
 $ yarn install # If yarn has not been installed yet.
-$ yarn add @fortawesome/fontawesome-free
-$ yarn add @fortawesome/free-solid-svg-icons
 $ rails db:create db:migrate
 $ rails db:seed_fu
 ```
@@ -132,7 +130,7 @@ $ rails db:seed_fu
 ## Change the language
 https://github.com/DiveintoCode-corp/diveintopost/blob/b958867948e7ab86c10a303b1f07d6478e87ef3a/config/application.rb#L25
 
-ex.  
+ex.
 Japanese ver.
 ```
 config.i18n.default_locale = :ja
