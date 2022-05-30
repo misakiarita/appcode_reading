@@ -16,7 +16,7 @@
 $ git clone git@github.com:DiveintoCode-corp/diveintopost-rails6.git
 $ cd diveintopost-rails6
 $ bundle install --path vendor/bundle
-$ yarn install # まだ環境にyarnが入っていなかったら
+$ yarn install
 $ rails db:create db:migrate
 $ rails db:seed_fu
 ```
