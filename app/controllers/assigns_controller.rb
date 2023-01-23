@@ -14,11 +14,18 @@ class AssignsController < ApplicationController
     end
   end
 
+  #ownwer以外はメンバーを消せないようにする
   def destroy
     assign = Assign.find(params[:id])
-    destroy_message = assign_destroy(assign, assign.user)
-
-    redirect_to team_url(params[:team_id]), notice: destroy_message
+    if assign.user == assign.team.owner
+      destroy_message = assign_destroy(assign, assign.user)
+      redirect_to team_url(params[:team_id]), notice: destroy_message
+    elsif assign.user == current_user
+      destroy_message = assign_destroy(assign, assign.user)
+      redirect_to team_url(params[:team_id]), notice: destroy_message
+    else
+      redirect_to team_url(params[:team_id]), notice: "権限がありません"
+    end
   end
 
   private
