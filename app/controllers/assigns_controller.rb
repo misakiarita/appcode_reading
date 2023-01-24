@@ -14,7 +14,7 @@ class AssignsController < ApplicationController
     end
   end
 
-  #ownwer以外はメンバーを消せないようにする
+  #owner以外はメンバーを消せないようにする
   def destroy
     assign = Assign.find(params[:id])
     if assign.user == assign.team.owner
