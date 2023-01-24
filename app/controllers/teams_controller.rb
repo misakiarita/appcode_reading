@@ -15,13 +15,8 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  #owner以外は編集させない
-  def edit
-    unless @team.owner_id == current_user.id 
-      redirect_to @team, notice: I18n.t('views.messages.not_edit_team')
-    end
-  end
-
+  def edit; end
+  
   def create
     @team = Team.new(team_params)
     @team.owner = current_user
@@ -33,7 +28,8 @@ class TeamsController < ApplicationController
       render :new
     end
   end
-
+  
+  #owner以外は編集させない
   def update
     if @team.update(team_params)
       redirect_to @team, notice: I18n.t('views.messages.update_team')
@@ -41,6 +37,13 @@ class TeamsController < ApplicationController
       flash.now[:error] = I18n.t('views.messages.failed_to_save_team')
       render :edit
     end
+  end
+
+  def chengeowner
+    @team = Team.friendly.find(params[:id])
+    @team.update(owner_id:params[:format])
+    OwnerChengeMailer.owner_chenge_mailer(@team).deliver
+    redirect_to @team, notice: I18n.t('views.messages.update_team')
   end
 
   def destroy

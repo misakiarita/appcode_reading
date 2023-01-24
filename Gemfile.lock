@@ -432,6 +432,7 @@ DEPENDENCIES
   rails (= 6.0.3)
   rails-controller-testing
   redcarpet (~> 3.5.1)
+  rexml
   rspec-parameterized
   rspec-rails
   rspec-retry
