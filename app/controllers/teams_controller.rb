@@ -38,7 +38,7 @@ class TeamsController < ApplicationController
       render :edit
     end
   end
-
+#チームリーダー権の移譲
   def chengeowner
     @team = Team.friendly.find(params[:id])
     @team.update(owner_id:params[:format])
