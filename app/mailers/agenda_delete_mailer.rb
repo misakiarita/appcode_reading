@@ -3,6 +3,5 @@ class AgendaDeleteMailer < ApplicationMailer
     @team_members = team_members
 
     mail to: @team_members.map(&:email).join(",")
-    
   end
 end

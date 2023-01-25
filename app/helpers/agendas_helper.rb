@@ -1,8 +1,9 @@
 module AgendasHelper
   def choose_new_or_edit
-    if action_name == 'new'
+    case action_name
+    when 'new'
       team_agendas_path
-    elsif action_name == 'edit'
+    when 'edit'
       agenda_path
     end
   end
